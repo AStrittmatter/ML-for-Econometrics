@@ -313,7 +313,7 @@ print(n1)
 set.seed(123456789) # Starting value
 
 # Cross-validated Lasso in participation equation
-lasso_part <- cv.glmnet(as.matrix(df_int[,c(3:ncol(df_int))]), as.matrix(df$participation), 
+lasso_part <- cv.glmnet(???, 
                         alpha=1, nfolds = 10, type.measure = 'mse', standardize = TRUE)
 plot(lasso_part)
 
@@ -322,7 +322,7 @@ plot(lasso_part)
 ####################################################################
 
 # Select covariates with non-zero coefficients
-coef <- predict(lasso_part,s = lasso_part$lambda.min, type = "nonzero") #
+coef <- predict(???,s = ???, type = "nonzero") #
 colnames <- colnames(df_int[,c(3:ncol(df_int))])
 print(paste0("Number of Selected Variables Participation Equation: ",length(n2)))
 print("Selected Variables:")
@@ -335,7 +335,7 @@ print(n2)
 ###############################################################################
 
 # Take union of selected covariates
-selected_covariates <- c("participation", unique(c(n1, n2)))
+selected_covariates <- c(???)
 
 # Setup the formula of the linear regression model
 sumx <- paste(selected_covariates, collapse = " + ")  
