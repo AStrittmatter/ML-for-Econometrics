@@ -14324,7 +14324,7 @@ participants were assigned to the control group. Control group members were not 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">##############################################################################</span>
@@ -14361,6 +14361,68 @@ participants were assigned to the control group. Control group members were not 
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>Warning message:
+&#34;package &#39;fBasics&#39; was built under R version 3.6.3&#34;Loading required package: timeDate
+Loading required package: timeSeries
+Warning message:
+&#34;package &#39;timeSeries&#39; was built under R version 3.6.3&#34;Warning message:
+&#34;package &#39;tidyverse&#39; was built under R version 3.6.3&#34;-- Attaching packages --------------------------------------- tidyverse 1.3.0 --
+v ggplot2 3.3.3     v purrr   0.3.4
+v tibble  3.0.6     v dplyr   1.0.4
+v tidyr   1.1.2     v stringr 1.4.0
+v readr   1.3.1     v forcats 0.4.0
+Warning message:
+&#34;package &#39;ggplot2&#39; was built under R version 3.6.3&#34;Warning message:
+&#34;package &#39;tibble&#39; was built under R version 3.6.3&#34;Warning message:
+&#34;package &#39;tidyr&#39; was built under R version 3.6.3&#34;Warning message:
+&#34;package &#39;purrr&#39; was built under R version 3.6.3&#34;Warning message:
+&#34;package &#39;dplyr&#39; was built under R version 3.6.3&#34;-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks timeSeries::filter(), stats::filter()
+x dplyr::lag()    masks timeSeries::lag(), stats::lag()
+Loading required package: lattice
+
+Attaching package: &#39;caret&#39;
+
+The following object is masked from &#39;package:purrr&#39;:
+
+    lift
+
+Warning message:
+&#34;package &#39;lmtest&#39; was built under R version 3.6.3&#34;Loading required package: zoo
+
+Attaching package: &#39;zoo&#39;
+
+The following object is masked from &#39;package:timeSeries&#39;:
+
+    time&lt;-
+
+The following objects are masked from &#39;package:base&#39;:
+
+    as.Date, as.Date.numeric
+
+Warning message:
+&#34;package &#39;sandwich&#39; was built under R version 3.6.3&#34;Warning message:
+&#34;package &#39;hdm&#39; was built under R version 3.6.3&#34;Warning message:
+&#34;package &#39;glmnet&#39; was built under R version 3.6.3&#34;Loading required package: Matrix
+
+Attaching package: &#39;Matrix&#39;
+
+The following objects are masked from &#39;package:tidyr&#39;:
+
+    expand, pack, unpack
+
+Loaded glmnet 4.1
+</pre>
+</div>
+</div>
 
 <div class="jp-OutputArea-child">
 
@@ -14950,7 +15012,7 @@ Pr(&gt;|t|)             0.10              0.03              0.01
 <span class="c1">## Eliminate collinear variables</span>
 <span class="n">df2</span> <span class="o">=</span> <span class="nf">cor</span><span class="p">(</span><span class="n">df_merge</span><span class="p">)</span>
 <span class="n">df2</span><span class="p">[</span><span class="nf">is.na</span><span class="p">(</span><span class="n">df2</span><span class="p">)]</span> <span class="o">&lt;-</span> <span class="m">1</span>
-<span class="n">hc</span> <span class="o">=</span> <span class="nf">findCorrelation</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span> <span class="c1"># putt any value as a &quot;cutoff&quot; </span>
+<span class="n">hc</span> <span class="o">=</span> <span class="nf">findCorrelation</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span> <span class="c1"># put any value as a &quot;cutoff&quot; </span>
 <span class="n">hc</span> <span class="o">=</span> <span class="nf">sort</span><span class="p">(</span><span class="n">hc</span><span class="p">)</span>
 <span class="n">df_int</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">df</span><span class="p">[,</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)],</span><span class="n">df_merge</span><span class="p">[,</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="n">hc</span><span class="p">)])</span>
 <span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Total number of control variables: &quot;</span><span class="p">,</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">df_int</span><span class="p">)</span><span class="m">-2</span><span class="p">))</span>
@@ -15559,7 +15621,7 @@ F-statistic: 32.97 on 11 and 2988 DF,  p-value: &lt; 2.2e-16
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Participation in Job Corps increased weekly earnings by 15.68 Dollars four years after the experiment.</p>
+<p>Participation in Job Corps increased weekly earnings by 20.99 Dollars four years after the experiment.</p>
 
 </div>
 </div>
@@ -16064,7 +16126,7 @@ EoAAiAQgACIBCPA/zXq519Nbq0UAAAAASUVORK5CYII="
 <div class=" highlight hl-r"><pre><span></span><span class="c1">####################################################################</span>
 
 <span class="c1"># Plot Lasso coefficients</span>
-<span class="nf">coef</span><span class="p">(</span><span class="n">lasso_earn</span><span class="p">,</span><span class="n">s</span> <span class="o">=</span> <span class="n">lasso_earn</span><span class="o">$</span><span class="n">lambda.1se</span><span class="p">)</span> 
+<span class="nf">coef</span><span class="p">(</span><span class="n">lasso_earn</span><span class="p">,</span><span class="n">s</span> <span class="o">=</span> <span class="n">lasso_earn</span><span class="o">$</span><span class="n">lambda.min</span><span class="p">)</span> 
 <span class="c1"># $lambda.min - Lambda that minimizes cross-validated MSE</span>
 <span class="c1"># $lambda.1se - Lambda of 1 standard error rule</span>
 
@@ -16091,428 +16153,428 @@ EoAAiAQgACIBCPA/zXq519Nbq0UAAAAASUVORK5CYII="
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
 <pre>421 x 1 sparse Matrix of class &#34;dgCMatrix&#34;
-                      1
-(Intercept)  205.761212
-female       -32.939275
-age_1          .       
-age_3          .       
-ed0_6          .       
-ed6_12         .       
-hs_ged        10.473966
-black        -16.599278
-hisp           .       
-oth_eth        .       
-livespou       .       
-everwork       .       
-badhlth        .       
-welf_kid       .       
-got_fs         .       
-potuse         .       
-evarrst        .       
-pmsa           .       
-msa            .       
-Inter.V1V2     .       
-Inter.V1V3     .       
-Inter.V1V4     .       
-Inter.V1V5     .       
-Inter.V1V6     .       
-Inter.V1V7     .       
-Inter.V1V8     .       
-Inter.V1V9     .       
-Inter.V1V10    .       
-Inter.V1V11    .       
-Inter.V1V14    .       
-Inter.V1V15    .       
-Inter.V1V16    .       
-Inter.V1V17    .       
-Inter.V1V18    .       
-Inter.V1V19    .       
-Inter.V1V20    .       
-Inter.V1V21    .       
-Inter.V1V22    .       
-Inter.V1V23    .       
-Inter.V1V24    .       
-Inter.V1V25    .       
-Inter.V1V26    .       
-Inter.V1V27    .       
-Inter.V1V28    .       
-Inter.V1V29    .       
-Inter.V1V30    .       
-Inter.V1V31    .       
-Inter.V2V4     .       
-Inter.V2V5     .       
-Inter.V2V6     .       
-Inter.V2V7    -6.687385
-Inter.V2V8     .       
-Inter.V2V9     .       
-Inter.V2V10    .       
-Inter.V2V11    .       
-Inter.V2V12    .       
-Inter.V2V14    .       
-Inter.V2V15    .       
-Inter.V2V16    .       
-Inter.V2V17    .       
-Inter.V2V18    .       
-Inter.V2V19    .       
-Inter.V2V20    .       
-Inter.V2V21    .       
-Inter.V2V22    .       
-Inter.V2V23    .       
-Inter.V2V24    .       
-Inter.V2V25    .       
-Inter.V2V26    .       
-Inter.V2V27    .       
-Inter.V2V28    .       
-Inter.V2V29    .       
-Inter.V2V30    .       
-Inter.V2V31    .       
-Inter.V3V4     .       
-Inter.V3V5     .       
-Inter.V3V6     .       
-Inter.V3V7     .       
-Inter.V3V8     .       
-Inter.V3V9     .       
-Inter.V3V10    .       
-Inter.V3V11    .       
-Inter.V3V14    .       
-Inter.V3V15    .       
-Inter.V3V16    .       
-Inter.V3V17    .       
-Inter.V3V18    .       
-Inter.V3V19    .       
-Inter.V3V20    .       
-Inter.V3V21    .       
-Inter.V3V22    .       
-Inter.V3V23    .       
-Inter.V3V24    .       
-Inter.V3V25    .       
-Inter.V3V26    .       
-Inter.V3V27    .       
-Inter.V3V28    .       
-Inter.V3V29    .       
-Inter.V3V30    .       
-Inter.V3V31    .       
-Inter.V4V5     .       
-Inter.V4V6     .       
-Inter.V4V7     .       
-Inter.V4V8     .       
-Inter.V4V9     .       
-Inter.V4V10    .       
-Inter.V4V11    .       
-Inter.V4V14    .       
-Inter.V4V15    .       
-Inter.V4V16    .       
-Inter.V4V17    .       
-Inter.V4V18    .       
-Inter.V4V19    .       
-Inter.V4V20    .       
-Inter.V4V21    .       
-Inter.V4V22    .       
-Inter.V4V23    .       
-Inter.V4V24    .       
-Inter.V4V25    .       
-Inter.V4V26    .       
-Inter.V4V27    .       
-Inter.V4V28    .       
-Inter.V4V29    .       
-Inter.V4V30    .       
-Inter.V4V31    .       
-Inter.V5V6     .       
-Inter.V5V7     .       
-Inter.V5V8     .       
-Inter.V5V9     .       
-Inter.V5V10    .       
-Inter.V5V11    .       
-Inter.V5V14    .       
-Inter.V5V15    .       
-Inter.V5V16    .       
-Inter.V5V17    .       
-Inter.V5V18    .       
-Inter.V5V19    .       
-Inter.V5V20    .       
-Inter.V5V21    .       
-Inter.V5V22    .       
-Inter.V5V23    .       
-Inter.V5V24    .       
-Inter.V5V25    .       
-Inter.V5V26    .       
-Inter.V5V27    .       
-Inter.V5V28    .       
-Inter.V5V29    .       
-Inter.V5V30    .       
-Inter.V5V31    .       
-Inter.V6V7     .       
-Inter.V6V8     .       
-Inter.V6V9     .       
-Inter.V6V10    .       
-Inter.V6V11    .       
-Inter.V6V14    .       
-Inter.V6V15    .       
-Inter.V6V16    .       
-Inter.V6V17    .       
-Inter.V6V18    .       
-Inter.V6V19    .       
-Inter.V6V20    .       
-Inter.V6V21    .       
-Inter.V6V22    .       
-Inter.V6V23    .       
-Inter.V6V24    .       
-Inter.V6V25    .       
-Inter.V6V26    .       
-Inter.V6V27    .       
-Inter.V6V28    .       
-Inter.V6V29    .       
-Inter.V6V30    .       
-Inter.V6V31    .       
-Inter.V7V10    .       
-Inter.V7V11    .       
-Inter.V7V12    .       
-Inter.V7V14    .       
-Inter.V7V15    .       
-Inter.V7V16    .       
-Inter.V7V17    .       
-Inter.V7V18    .       
-Inter.V7V19    .       
-Inter.V7V20    .       
-Inter.V7V21    .       
-Inter.V7V22    .       
-Inter.V7V23    .       
-Inter.V7V24    .       
-Inter.V7V25    .       
-Inter.V7V26    .       
-Inter.V7V27    .       
-Inter.V7V28    .       
-Inter.V7V29   -1.467392
-Inter.V7V30    .       
-Inter.V7V31    .       
-Inter.V8V10    .       
-Inter.V8V11    .       
-Inter.V8V14    .       
-Inter.V8V15    .       
-Inter.V8V16    .       
-Inter.V8V17    .       
-Inter.V8V18    .       
-Inter.V8V19    .       
-Inter.V8V20    .       
-Inter.V8V21    7.697634
-Inter.V8V22    .       
-Inter.V8V23    .       
-Inter.V8V24    .       
-Inter.V8V25    .       
-Inter.V8V26    .       
-Inter.V8V27    .       
-Inter.V8V28    .       
-Inter.V8V29    .       
-Inter.V8V30    .       
-Inter.V8V31    .       
-Inter.V9V10    .       
-Inter.V9V11    .       
-Inter.V9V14    .       
-Inter.V9V15    .       
-Inter.V9V16    .       
-Inter.V9V17    .       
-Inter.V9V18    .       
-Inter.V9V19    .       
-Inter.V9V20    .       
-Inter.V9V21    .       
-Inter.V9V22    .       
-Inter.V9V23    .       
-Inter.V9V24    .       
-Inter.V9V25    .       
-Inter.V9V26    .       
-Inter.V9V27    .       
-Inter.V9V28    .       
-Inter.V9V29    .       
-Inter.V9V30    .       
-Inter.V9V31    .       
-Inter.V10V11   .       
-Inter.V10V14   .       
-Inter.V10V15   .       
-Inter.V10V16   .       
-Inter.V10V17   .       
-Inter.V10V18   .       
-Inter.V10V19   .       
-Inter.V10V20   .       
-Inter.V10V21   .       
-Inter.V10V22   .       
-Inter.V10V23   .       
-Inter.V10V25   .       
-Inter.V10V26   .       
-Inter.V10V27   .       
-Inter.V10V28   .       
-Inter.V10V29   .       
-Inter.V10V30   .       
-Inter.V10V31   .       
-Inter.V11V14   .       
-Inter.V11V15   .       
-Inter.V11V16   .       
-Inter.V11V17   .       
-Inter.V11V18   .       
-Inter.V11V19   .       
-Inter.V11V20   .       
-Inter.V11V21   .       
-Inter.V11V22   .       
-Inter.V11V23   .       
-Inter.V11V24   .       
-Inter.V11V25   .       
-Inter.V11V26   .       
-Inter.V11V27   .       
-Inter.V11V28   .       
-Inter.V11V29   .       
-Inter.V11V30   .       
-Inter.V11V31   .       
-Inter.V12V13  26.751069
-Inter.V12V24   .       
-Inter.V12V25   .       
-Inter.V12V26   .       
-Inter.V12V27   .       
-Inter.V13V14   2.668469
-Inter.V13V15   .       
-Inter.V13V16   .       
-Inter.V13V17  21.781869
-Inter.V13V19   .       
-Inter.V13V20   .       
-Inter.V14V15   .       
-Inter.V14V16   .       
-Inter.V14V17   .       
-Inter.V14V18   .       
-Inter.V14V19   .       
-Inter.V14V20   .       
-Inter.V14V21   .       
-Inter.V14V22   .       
-Inter.V14V23   .       
-Inter.V14V24   .       
-Inter.V14V25   .       
-Inter.V14V26   .       
-Inter.V14V27   .       
-Inter.V14V28   .       
-Inter.V14V29   .       
-Inter.V14V30   .       
-Inter.V14V31   .       
-Inter.V15V18   .       
-Inter.V15V19   .       
-Inter.V15V20   .       
-Inter.V15V22   .       
-Inter.V15V23   .       
-Inter.V15V24   .       
-Inter.V15V25   .       
-Inter.V15V26   .       
-Inter.V15V27   .       
-Inter.V15V28   .       
-Inter.V15V29   .       
-Inter.V15V30   .       
-Inter.V15V31   .       
-Inter.V16V17   .       
-Inter.V16V18   .       
-Inter.V16V19   .       
-Inter.V16V20   .       
-Inter.V16V21   .       
-Inter.V16V22   .       
-Inter.V16V23   .       
-Inter.V16V24   .       
-Inter.V16V25   .       
-Inter.V16V26   .       
-Inter.V16V27   .       
-Inter.V16V28   .       
-Inter.V16V29   .       
-Inter.V16V30   .       
-Inter.V16V31   .       
-Inter.V17V18   .       
-Inter.V17V19   .       
-Inter.V17V20   .       
-Inter.V17V21   6.075990
-Inter.V17V22   .       
-Inter.V17V23   .       
-Inter.V17V24   .       
-Inter.V17V25   .       
-Inter.V17V26   .       
-Inter.V17V27   .       
-Inter.V17V28   .       
-Inter.V17V29   .       
-Inter.V17V30   .       
-Inter.V17V31   .       
-Inter.V18V22   .       
-Inter.V18V23   .       
-Inter.V18V24   .       
-Inter.V18V25   .       
-Inter.V18V26   .       
-Inter.V18V27   .       
-Inter.V18V28   .       
-Inter.V18V29   .       
-Inter.V18V30   .       
-Inter.V18V31   .       
-Inter.V19V22   .       
-Inter.V19V23   .       
-Inter.V19V24   .       
-Inter.V19V25   .       
-Inter.V19V26   .       
-Inter.V19V27   .       
-Inter.V19V28   .       
-Inter.V19V29   .       
-Inter.V19V30   .       
-Inter.V19V31   .       
-Inter.V20V21   .       
-Inter.V20V22   .       
-Inter.V20V23   .       
-Inter.V20V24   .       
-Inter.V20V25   .       
-Inter.V20V26   .       
-Inter.V20V27   .       
-Inter.V20V28   .       
-Inter.V20V29   .       
-Inter.V20V30   .       
-Inter.V20V31   .       
-Inter.V21V22   .       
-Inter.V21V23   .       
-Inter.V21V24   .       
-Inter.V21V25   .       
-Inter.V21V26   .       
-Inter.V21V27   .       
-Inter.V21V28   .       
-Inter.V21V29   .       
-Inter.V21V30   .       
-Inter.V21V31   .       
-Inter.V22V23   .       
-Inter.V22V24   .       
-Inter.V22V25   .       
-Inter.V22V26   .       
-Inter.V22V27   .       
-Inter.V22V28   .       
-Inter.V22V29   .       
-Inter.V22V30   .       
-Inter.V22V31   .       
-Inter.V23V25   .       
-Inter.V23V26   .       
-Inter.V23V27   .       
-Inter.V23V28   .       
-Inter.V23V29   .       
-Inter.V23V30   .       
-Inter.V23V31   .       
-Inter.V24V25   .       
-Inter.V24V27   .       
-Inter.V24V28   .       
-Inter.V24V29   .       
-Inter.V24V30   .       
-Inter.V24V31   .       
-Inter.V25V26   .       
-Inter.V25V27   .       
-Inter.V25V28   .       
-Inter.V25V29   .       
-Inter.V25V30   .       
-Inter.V25V31   .       
-Inter.V26V27   .       
-Inter.V26V28   .       
-Inter.V26V29   .       
-Inter.V26V30   .       
-Inter.V26V31   .       
-Inter.V27V29   .       
-Inter.V27V30   .       
-Inter.V27V31   .       
-Inter.V28V29   .       
-Inter.V28V30   .       
-Inter.V28V31   .       
-Inter.V29V30   .       
-Inter.V29V31   .       </pre>
+                         1
+(Intercept)  219.485829772
+female       -55.051149871
+age_1          .          
+age_3          .          
+ed0_6          .          
+ed6_12         .          
+hs_ged         5.119410940
+black        -25.963612506
+hisp           .          
+oth_eth        .          
+livespou       .          
+everwork       4.613251935
+badhlth       -5.955532958
+welf_kid       .          
+got_fs         .          
+potuse        -7.374418883
+evarrst        .          
+pmsa           .          
+msa            .          
+Inter.V1V2     .          
+Inter.V1V3     .          
+Inter.V1V4     .          
+Inter.V1V5     .          
+Inter.V1V6     .          
+Inter.V1V7     .          
+Inter.V1V8     .          
+Inter.V1V9    -3.896601509
+Inter.V1V10    .          
+Inter.V1V11    .          
+Inter.V1V14    .          
+Inter.V1V15    .          
+Inter.V1V16    .          
+Inter.V1V17    .          
+Inter.V1V18  -22.173311098
+Inter.V1V19    .          
+Inter.V1V20    2.629178406
+Inter.V1V21    .          
+Inter.V1V22    .          
+Inter.V1V23   -7.155830379
+Inter.V1V24    .          
+Inter.V1V25    .          
+Inter.V1V26    .          
+Inter.V1V27    .          
+Inter.V1V28    .          
+Inter.V1V29    .          
+Inter.V1V30    .          
+Inter.V1V31    .          
+Inter.V2V4     .          
+Inter.V2V5     .          
+Inter.V2V6    43.349711039
+Inter.V2V7   -14.309015809
+Inter.V2V8   -16.577828323
+Inter.V2V9     .          
+Inter.V2V10    .          
+Inter.V2V11    .          
+Inter.V2V12    .          
+Inter.V2V14   12.519649092
+Inter.V2V15    .          
+Inter.V2V16    .          
+Inter.V2V17    .          
+Inter.V2V18    .          
+Inter.V2V19    .          
+Inter.V2V20   21.908013872
+Inter.V2V21    .          
+Inter.V2V22    .          
+Inter.V2V23    .          
+Inter.V2V24    .          
+Inter.V2V25    .          
+Inter.V2V26   -6.838255705
+Inter.V2V27    0.146497155
+Inter.V2V28    .          
+Inter.V2V29    .          
+Inter.V2V30   -3.845975268
+Inter.V2V31    .          
+Inter.V3V4     .          
+Inter.V3V5     .          
+Inter.V3V6    15.191636508
+Inter.V3V7     .          
+Inter.V3V8     .          
+Inter.V3V9     .          
+Inter.V3V10    .          
+Inter.V3V11   -8.046684370
+Inter.V3V14    .          
+Inter.V3V15    .          
+Inter.V3V16    .          
+Inter.V3V17    .          
+Inter.V3V18  -11.320026039
+Inter.V3V19    .          
+Inter.V3V20   34.659144186
+Inter.V3V21    .          
+Inter.V3V22    .          
+Inter.V3V23    .          
+Inter.V3V24    .          
+Inter.V3V25    .          
+Inter.V3V26    .          
+Inter.V3V27    .          
+Inter.V3V28    .          
+Inter.V3V29    .          
+Inter.V3V30    .          
+Inter.V3V31    .          
+Inter.V4V5     .          
+Inter.V4V6     3.236609936
+Inter.V4V7     .          
+Inter.V4V8     .          
+Inter.V4V9     .          
+Inter.V4V10    0.354811969
+Inter.V4V11    .          
+Inter.V4V14    .          
+Inter.V4V15    7.554443291
+Inter.V4V16    .          
+Inter.V4V17    .          
+Inter.V4V18    .          
+Inter.V4V19    .          
+Inter.V4V20    .          
+Inter.V4V21    .          
+Inter.V4V22   -0.238906031
+Inter.V4V23    .          
+Inter.V4V24    .          
+Inter.V4V25    .          
+Inter.V4V26    .          
+Inter.V4V27  -47.074593276
+Inter.V4V28    .          
+Inter.V4V29    .          
+Inter.V4V30    .          
+Inter.V4V31    .          
+Inter.V5V6     .          
+Inter.V5V7     .          
+Inter.V5V8     .          
+Inter.V5V9     .          
+Inter.V5V10    .          
+Inter.V5V11    .          
+Inter.V5V14    .          
+Inter.V5V15    .          
+Inter.V5V16    .          
+Inter.V5V17   14.164165579
+Inter.V5V18    .          
+Inter.V5V19    8.078003110
+Inter.V5V20    .          
+Inter.V5V21    .          
+Inter.V5V22    .          
+Inter.V5V23    .          
+Inter.V5V24    .          
+Inter.V5V25    .          
+Inter.V5V26    .          
+Inter.V5V27    9.423187299
+Inter.V5V28    .          
+Inter.V5V29    .          
+Inter.V5V30    .          
+Inter.V5V31    1.256857513
+Inter.V6V7     1.175903919
+Inter.V6V8     .          
+Inter.V6V9     .          
+Inter.V6V10    .          
+Inter.V6V11    .          
+Inter.V6V14    .          
+Inter.V6V15    .          
+Inter.V6V16   17.655541618
+Inter.V6V17    .          
+Inter.V6V18    .          
+Inter.V6V19    .          
+Inter.V6V20    .          
+Inter.V6V21   16.061789374
+Inter.V6V22    .          
+Inter.V6V23    .          
+Inter.V6V24    .          
+Inter.V6V25    .          
+Inter.V6V26    .          
+Inter.V6V27    .          
+Inter.V6V28    .          
+Inter.V6V29    .          
+Inter.V6V30   11.845042644
+Inter.V6V31    .          
+Inter.V7V10    .          
+Inter.V7V11    .          
+Inter.V7V12    .          
+Inter.V7V14    .          
+Inter.V7V15    .          
+Inter.V7V16    .          
+Inter.V7V17    .          
+Inter.V7V18    .          
+Inter.V7V19    .          
+Inter.V7V20    .          
+Inter.V7V21    .          
+Inter.V7V22    .          
+Inter.V7V23    .          
+Inter.V7V24    .          
+Inter.V7V25   -9.800284704
+Inter.V7V26    .          
+Inter.V7V27    .          
+Inter.V7V28    .          
+Inter.V7V29  -35.402032436
+Inter.V7V30  -10.047034447
+Inter.V7V31    .          
+Inter.V8V10    .          
+Inter.V8V11    .          
+Inter.V8V14    .          
+Inter.V8V15    .          
+Inter.V8V16    .          
+Inter.V8V17    2.137726655
+Inter.V8V18   -6.694732436
+Inter.V8V19    .          
+Inter.V8V20    .          
+Inter.V8V21   81.037951905
+Inter.V8V22    .          
+Inter.V8V23  -20.126107401
+Inter.V8V24    .          
+Inter.V8V25    .          
+Inter.V8V26    .          
+Inter.V8V27    .          
+Inter.V8V28    .          
+Inter.V8V29    .          
+Inter.V8V30    .          
+Inter.V8V31    .          
+Inter.V9V10   -6.329212671
+Inter.V9V11    .          
+Inter.V9V14  -19.721586927
+Inter.V9V15    .          
+Inter.V9V16    .          
+Inter.V9V17    .          
+Inter.V9V18    .          
+Inter.V9V19    .          
+Inter.V9V20    .          
+Inter.V9V21    .          
+Inter.V9V22    .          
+Inter.V9V23  -35.491787217
+Inter.V9V24    .          
+Inter.V9V25    .          
+Inter.V9V26   -8.928948417
+Inter.V9V27  -18.170386614
+Inter.V9V28  -14.527652541
+Inter.V9V29    .          
+Inter.V9V30   13.601362010
+Inter.V9V31    .          
+Inter.V10V11   .          
+Inter.V10V14   .          
+Inter.V10V15   .          
+Inter.V10V16 -17.460974453
+Inter.V10V17   .          
+Inter.V10V18   .          
+Inter.V10V19  -5.996436198
+Inter.V10V20   .          
+Inter.V10V21  50.971528882
+Inter.V10V22   .          
+Inter.V10V23   .          
+Inter.V10V25   .          
+Inter.V10V26   .          
+Inter.V10V27   .          
+Inter.V10V28   .          
+Inter.V10V29   8.244705082
+Inter.V10V30   9.456765769
+Inter.V10V31   .          
+Inter.V11V14   .          
+Inter.V11V15   .          
+Inter.V11V16 -24.327744633
+Inter.V11V17   .          
+Inter.V11V18   .          
+Inter.V11V19   .          
+Inter.V11V20   .          
+Inter.V11V21 -52.893360573
+Inter.V11V22   .          
+Inter.V11V23   .          
+Inter.V11V24   .          
+Inter.V11V25   .          
+Inter.V11V26   .          
+Inter.V11V27   .          
+Inter.V11V28 -25.909290864
+Inter.V11V29   .          
+Inter.V11V30   .          
+Inter.V11V31   .          
+Inter.V12V13  33.930063969
+Inter.V12V24   .          
+Inter.V12V25   .          
+Inter.V12V26   .          
+Inter.V12V27   .          
+Inter.V13V14   .          
+Inter.V13V15   .          
+Inter.V13V16   .          
+Inter.V13V17   .          
+Inter.V13V19   .          
+Inter.V13V20   .          
+Inter.V14V15   .          
+Inter.V14V16   .          
+Inter.V14V17   1.566886885
+Inter.V14V18   .          
+Inter.V14V19   .          
+Inter.V14V20   .          
+Inter.V14V21   .          
+Inter.V14V22   .          
+Inter.V14V23   .          
+Inter.V14V24   .          
+Inter.V14V25   .          
+Inter.V14V26   .          
+Inter.V14V27   .          
+Inter.V14V28   .          
+Inter.V14V29   .          
+Inter.V14V30   .          
+Inter.V14V31  33.420046603
+Inter.V15V18  -2.833181284
+Inter.V15V19   .          
+Inter.V15V20   .          
+Inter.V15V22  -1.187238223
+Inter.V15V23   .          
+Inter.V15V24   .          
+Inter.V15V25   .          
+Inter.V15V26   .          
+Inter.V15V27  12.395128511
+Inter.V15V28  -3.647373283
+Inter.V15V29   .          
+Inter.V15V30   .          
+Inter.V15V31   .          
+Inter.V16V17  -1.367814402
+Inter.V16V18   .          
+Inter.V16V19   .          
+Inter.V16V20   .          
+Inter.V16V21   .          
+Inter.V16V22   .          
+Inter.V16V23   .          
+Inter.V16V24   .          
+Inter.V16V25   .          
+Inter.V16V26  -2.413671244
+Inter.V16V27   .          
+Inter.V16V28   .          
+Inter.V16V29   .          
+Inter.V16V30   .          
+Inter.V16V31   .          
+Inter.V17V18   .          
+Inter.V17V19   .          
+Inter.V17V20   .          
+Inter.V17V21  24.399021134
+Inter.V17V22   .          
+Inter.V17V23   .          
+Inter.V17V24   .          
+Inter.V17V25   .          
+Inter.V17V26   .          
+Inter.V17V27   .          
+Inter.V17V28   .          
+Inter.V17V29   .          
+Inter.V17V30  33.123601152
+Inter.V17V31   .          
+Inter.V18V22  -1.495699267
+Inter.V18V23   .          
+Inter.V18V24   .          
+Inter.V18V25   .          
+Inter.V18V26   .          
+Inter.V18V27   .          
+Inter.V18V28  -8.306965226
+Inter.V18V29   .          
+Inter.V18V30   .          
+Inter.V18V31   .          
+Inter.V19V22   .          
+Inter.V19V23   .          
+Inter.V19V24   .          
+Inter.V19V25   .          
+Inter.V19V26   .          
+Inter.V19V27   .          
+Inter.V19V28   .          
+Inter.V19V29   .          
+Inter.V19V30   .          
+Inter.V19V31   .          
+Inter.V20V21 -28.725157883
+Inter.V20V22   .          
+Inter.V20V23   .          
+Inter.V20V24   .          
+Inter.V20V25   .          
+Inter.V20V26   .          
+Inter.V20V27   .          
+Inter.V20V28   .          
+Inter.V20V29   .          
+Inter.V20V30   6.234366912
+Inter.V20V31   .          
+Inter.V21V22   .          
+Inter.V21V23   .          
+Inter.V21V24  17.057176946
+Inter.V21V25   .          
+Inter.V21V26   .          
+Inter.V21V27   .          
+Inter.V21V28   .          
+Inter.V21V29   .          
+Inter.V21V30   .          
+Inter.V21V31   .          
+Inter.V22V23  -0.003337606
+Inter.V22V24   .          
+Inter.V22V25   .          
+Inter.V22V26  -1.739968770
+Inter.V22V27   .          
+Inter.V22V28 -13.626210348
+Inter.V22V29   .          
+Inter.V22V30   .          
+Inter.V22V31  -0.454931739
+Inter.V23V25   .          
+Inter.V23V26   .          
+Inter.V23V27   .          
+Inter.V23V28   .          
+Inter.V23V29   .          
+Inter.V23V30   .          
+Inter.V23V31   .          
+Inter.V24V25  -3.349267085
+Inter.V24V27   .          
+Inter.V24V28   .          
+Inter.V24V29   .          
+Inter.V24V30   .          
+Inter.V24V31   .          
+Inter.V25V26   .          
+Inter.V25V27   .          
+Inter.V25V28   .          
+Inter.V25V29   .          
+Inter.V25V30   .          
+Inter.V25V31   .          
+Inter.V26V27   .          
+Inter.V26V28   .          
+Inter.V26V29   .          
+Inter.V26V30   .          
+Inter.V26V31   .          
+Inter.V27V29   .          
+Inter.V27V30   .          
+Inter.V27V31   .          
+Inter.V28V29   .          
+Inter.V28V30   .          
+Inter.V28V31   .          
+Inter.V29V30   .          
+Inter.V29V31   .          </pre>
 </div>
 
 </div>
@@ -16843,7 +16905,8 @@ QmCC"
 <span class="c1"># Select covariates with non-zero coefficients</span>
 <span class="n">coef</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">lasso_part</span><span class="p">,</span><span class="n">s</span> <span class="o">=</span> <span class="n">lasso_part</span><span class="o">$</span><span class="n">lambda.min</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;nonzero&quot;</span><span class="p">)</span> <span class="c1">#</span>
 <span class="n">colnames</span> <span class="o">&lt;-</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">df_int</span><span class="p">[,</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">df_int</span><span class="p">))])</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Number of Selected Variables Participation Equation: &quot;</span><span class="p">,</span><span class="nf">length</span><span class="p">(</span><span class="n">n2</span><span class="p">)))</span>
+<span class="n">n2</span> <span class="o">&lt;-</span> <span class="n">colnames</span><span class="p">[</span><span class="nf">unlist</span><span class="p">(</span><span class="n">coef</span><span class="p">)]</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Number of Selected Variables Earnings Equation: &quot;</span><span class="p">,</span><span class="nf">length</span><span class="p">(</span><span class="n">n2</span><span class="p">)))</span>
 <span class="nf">print</span><span class="p">(</span><span class="s">&quot;Selected Variables:&quot;</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
 
@@ -16867,9 +16930,13 @@ QmCC"
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[1] &#34;Number of Selected Variables Participation Equation: 1&#34;
+<pre>[1] &#34;Number of Selected Variables Earnings Equation: 24&#34;
 [1] &#34;Selected Variables:&#34;
-[1] &#34;Inter.V11V21&#34;
+ [1] &#34;Inter.V1V2&#34;   &#34;Inter.V1V9&#34;   &#34;Inter.V2V7&#34;   &#34;Inter.V2V25&#34;  &#34;Inter.V3V4&#34;  
+ [6] &#34;Inter.V3V10&#34;  &#34;Inter.V3V17&#34;  &#34;Inter.V4V5&#34;   &#34;Inter.V4V11&#34;  &#34;Inter.V4V20&#34; 
+[11] &#34;Inter.V4V29&#34;  &#34;Inter.V4V31&#34;  &#34;Inter.V5V26&#34;  &#34;Inter.V6V28&#34;  &#34;Inter.V9V22&#34; 
+[16] &#34;Inter.V11V17&#34; &#34;Inter.V11V21&#34; &#34;Inter.V15V23&#34; &#34;Inter.V19V28&#34; &#34;Inter.V19V29&#34;
+[21] &#34;Inter.V20V27&#34; &#34;Inter.V20V30&#34; &#34;Inter.V21V30&#34; &#34;Inter.V24V25&#34;
 </pre>
 </div>
 </div>
@@ -16888,7 +16955,7 @@ QmCC"
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">###############################################################################</span>
@@ -16935,96 +17002,115 @@ lm(formula = linear, data = df_int)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--504.36 -128.29  -23.89   91.90 1697.87 
+-511.28 -128.88  -23.90   92.92 1677.78 
 
 Coefficients:
-               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    219.6670    11.7967  18.621  &lt; 2e-16 ***
-participation   20.6415     7.0640   2.922 0.003504 ** 
-female         -65.6238     9.1985  -7.134 1.22e-12 ***
-hs_ged         -24.0433    17.4220  -1.380 0.167676    
-black          -37.7116    13.0626  -2.887 0.003918 ** 
-everwork         8.8677    11.9608   0.741 0.458511    
-badhlth          4.8417    19.8464   0.244 0.807282    
-potuse         -12.5627    10.2854  -1.221 0.222026    
-Inter.V1V9      -6.3771    26.1445  -0.244 0.807311    
-Inter.V1V18    -24.5970    22.1174  -1.112 0.266180    
-Inter.V1V20     13.3001    19.3891   0.686 0.492794    
-Inter.V1V23     -3.8029    14.1319  -0.269 0.787872    
-Inter.V2V6      75.0813    33.4327   2.246 0.024795 *  
-Inter.V2V7     -15.0678    13.8564  -1.087 0.276938    
-Inter.V2V8     -42.8644    18.2368  -2.350 0.018817 *  
-Inter.V2V14     22.0471    16.3356   1.350 0.177238    
-Inter.V2V20     34.4776    24.5370   1.405 0.160089    
-Inter.V2V26    -10.5157    12.8579  -0.818 0.413516    
-Inter.V2V27     37.6932    30.1498   1.250 0.211328    
-Inter.V2V30     -2.1400    14.5789  -0.147 0.883309    
-Inter.V3V6      32.2089    15.8988   2.026 0.042869 *  
-Inter.V3V11    -18.1387    23.2242  -0.781 0.434851    
-Inter.V3V18    -41.2248    31.5881  -1.305 0.191970    
-Inter.V3V20     42.4435    19.5011   2.176 0.029601 *  
-Inter.V4V6      13.6382    16.5878   0.822 0.411040    
-Inter.V4V10     23.7717    17.6170   1.349 0.177326    
-Inter.V4V15     42.1201    17.9149   2.351 0.018783 *  
-Inter.V4V22    -18.7078    22.1164  -0.846 0.397689    
-Inter.V4V27   -112.7341    34.0960  -3.306 0.000957 ***
-Inter.V5V17     20.2705    16.8484   1.203 0.229032    
-Inter.V5V19     19.4545    13.9174   1.398 0.162264    
-Inter.V5V27      1.4697    33.9078   0.043 0.965430    
-Inter.V5V31     13.1075    11.9805   1.094 0.274013    
-Inter.V6V7      26.3477    17.4002   1.514 0.130078    
-Inter.V6V16     39.6295    16.6019   2.387 0.017048 *  
-Inter.V6V21     33.7412    27.6862   1.219 0.223056    
-Inter.V6V30     19.0511    17.1869   1.108 0.267750    
-Inter.V7V25    -15.6532    14.3479  -1.091 0.275374    
-Inter.V7V29    -50.5391    12.8249  -3.941 8.31e-05 ***
-Inter.V7V30    -24.2941    13.8950  -1.748 0.080498 .  
-Inter.V8V17     11.6712    24.9354   0.468 0.639777    
-Inter.V8V18    -29.5234    30.1663  -0.979 0.327815    
-Inter.V8V21    117.1380    43.2931   2.706 0.006856 ** 
-Inter.V8V23    -36.5899    21.8634  -1.674 0.094323 .  
-Inter.V9V10    -32.8627    39.7085  -0.828 0.407965    
-Inter.V9V14    -73.7048    32.9635  -2.236 0.025430 *  
-Inter.V9V23    -67.5223    36.5737  -1.846 0.064964 .  
-Inter.V9V26    -13.9434    31.3309  -0.445 0.656327    
-Inter.V9V27    -83.3291    46.3957  -1.796 0.072590 .  
-Inter.V9V28    -46.4196    30.9261  -1.501 0.133468    
-Inter.V9V30     58.0367    27.7554   2.091 0.036614 *  
-Inter.V10V16   -42.0155    21.2402  -1.978 0.048010 *  
-Inter.V10V19   -34.5234    20.9302  -1.649 0.099162 .  
-Inter.V10V21    72.6400    34.8836   2.082 0.037397 *  
-Inter.V10V29    47.8904    19.3011   2.481 0.013149 *  
-Inter.V10V30    36.1949    16.9621   2.134 0.032937 *  
-Inter.V11V16   -30.3396    29.0399  -1.045 0.296222    
-Inter.V11V21  -136.9618    44.2992  -3.092 0.002009 ** 
-Inter.V11V28   -44.9096    37.3650  -1.202 0.229494    
-Inter.V12V13    34.0592    13.2841   2.564 0.010400 *  
-Inter.V14V17    -4.3522    16.9130  -0.257 0.796943    
-Inter.V14V31    45.2125    15.5035   2.916 0.003569 ** 
-Inter.V15V18   -11.2175    19.5548  -0.574 0.566250    
-Inter.V15V22    -9.0379    29.5403  -0.306 0.759664    
-Inter.V15V27    52.7003    34.6176   1.522 0.128028    
-Inter.V15V28    -4.0791    21.5802  -0.189 0.850088    
-Inter.V16V17   -33.7351    21.2837  -1.585 0.113069    
-Inter.V16V26    -8.6139    15.3589  -0.561 0.574947    
-Inter.V17V21    25.5846    23.3219   1.097 0.272723    
-Inter.V17V30    42.7013    19.2825   2.215 0.026870 *  
-Inter.V18V22   -11.0036    40.4031  -0.272 0.785375    
-Inter.V18V28   -14.5536    29.8491  -0.488 0.625890    
-Inter.V20V21  -283.6984   203.2738  -1.396 0.162927    
-Inter.V20V30    11.4964    22.9606   0.501 0.616620    
-Inter.V21V24    43.4541    34.1737   1.272 0.203628    
-Inter.V22V23   -11.3993    24.7459  -0.461 0.645083    
-Inter.V22V26    -0.2424    22.4973  -0.011 0.991404    
-Inter.V22V28   -17.6139    23.1108  -0.762 0.446032    
-Inter.V22V31   -17.8883    19.8926  -0.899 0.368596    
-Inter.V24V25    -3.7732    13.4920  -0.280 0.779757    
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    218.80638   12.28001  17.818  &lt; 2e-16 ***
+participation   20.72125    7.17460   2.888 0.003904 ** 
+female         -61.31100   11.20325  -5.473 4.81e-08 ***
+hs_ged         -26.27552   18.53056  -1.418 0.156311    
+black          -35.83871   13.51715  -2.651 0.008061 ** 
+everwork         9.21773   12.02832   0.766 0.443539    
+badhlth          8.08855   20.62032   0.392 0.694894    
+potuse         -12.99586   12.22145  -1.063 0.287705    
+Inter.V1V9      -8.23635   26.59041  -0.310 0.756774    
+Inter.V1V18    -24.71654   22.30324  -1.108 0.267866    
+Inter.V1V20     10.49933   20.14330   0.521 0.602245    
+Inter.V1V23     -4.79037   14.59134  -0.328 0.742707    
+Inter.V2V6      78.14523   33.93048   2.303 0.021344 *  
+Inter.V2V7     -17.49387   15.02489  -1.164 0.244388    
+Inter.V2V8     -43.70538   18.86822  -2.316 0.020609 *  
+Inter.V2V14     22.44440   16.60156   1.352 0.176498    
+Inter.V2V20     40.33782   25.13801   1.605 0.108679    
+Inter.V2V26    -10.42285   15.04353  -0.693 0.488462    
+Inter.V2V27     35.91529   30.50183   1.177 0.239101    
+Inter.V2V30     -0.28240   14.82567  -0.019 0.984804    
+Inter.V3V6      39.10951   17.25053   2.267 0.023454 *  
+Inter.V3V11    -19.17596   24.96670  -0.768 0.442513    
+Inter.V3V18    -35.24064   32.16878  -1.095 0.273392    
+Inter.V3V20     56.19659   21.94849   2.560 0.010506 *  
+Inter.V4V6       9.31323   19.16362   0.486 0.627014    
+Inter.V4V10     22.34223   19.55860   1.142 0.253414    
+Inter.V4V15     40.41525   18.64892   2.167 0.030304 *  
+Inter.V4V22    -22.02425   22.62781  -0.973 0.330472    
+Inter.V4V27   -112.03118   35.49609  -3.156 0.001615 ** 
+Inter.V5V17     18.75659   17.48349   1.073 0.283442    
+Inter.V5V19     18.81351   14.37041   1.309 0.190576    
+Inter.V5V27      2.48738   35.28167   0.071 0.943800    
+Inter.V5V31     16.51406   12.65488   1.305 0.192011    
+Inter.V6V7      26.48871   17.55713   1.509 0.131481    
+Inter.V6V16     39.19575   16.90622   2.318 0.020496 *  
+Inter.V6V21     38.08072   28.10720   1.355 0.175574    
+Inter.V6V30     17.78363   17.48273   1.017 0.309138    
+Inter.V7V25    -16.63007   14.92638  -1.114 0.265311    
+Inter.V7V29    -53.01763   13.92922  -3.806 0.000144 ***
+Inter.V7V30    -23.28081   14.11808  -1.649 0.099254 .  
+Inter.V8V17      7.65045   25.44055   0.301 0.763651    
+Inter.V8V18    -27.98130   30.32543  -0.923 0.356240    
+Inter.V8V21    120.93004   44.37055   2.725 0.006460 ** 
+Inter.V8V23    -37.64934   22.10452  -1.703 0.088630 .  
+Inter.V9V10    -28.92605   39.93991  -0.724 0.468977    
+Inter.V9V14    -71.50703   33.30715  -2.147 0.031884 *  
+Inter.V9V23    -68.08846   37.04008  -1.838 0.066130 .  
+Inter.V9V26    -14.09715   31.54051  -0.447 0.654942    
+Inter.V9V27    -79.18762   46.76726  -1.693 0.090519 .  
+Inter.V9V28    -48.17738   31.16486  -1.546 0.122241    
+Inter.V9V30     63.38105   28.09505   2.256 0.024148 *  
+Inter.V10V16   -39.79621   21.89534  -1.818 0.069234 .  
+Inter.V10V19   -29.99707   21.45820  -1.398 0.162241    
+Inter.V10V21    91.20934   36.10492   2.526 0.011582 *  
+Inter.V10V29    45.18782   19.67347   2.297 0.021696 *  
+Inter.V10V30    41.76639   17.66203   2.365 0.018107 *  
+Inter.V11V16   -31.55682   29.88864  -1.056 0.291141    
+Inter.V11V21  -188.81560   51.99711  -3.631 0.000287 ***
+Inter.V11V28   -55.21420   38.24788  -1.444 0.148963    
+Inter.V12V13    28.54795   14.14705   2.018 0.043689 *  
+Inter.V14V17    -1.14292   17.22301  -0.066 0.947096    
+Inter.V14V31    43.49615   15.72329   2.766 0.005705 ** 
+Inter.V15V18    -7.25566   19.92198  -0.364 0.715732    
+Inter.V15V22    -6.44266   29.81261  -0.216 0.828921    
+Inter.V15V27    53.24873   35.02813   1.520 0.128577    
+Inter.V15V28    -5.37644   22.34990  -0.241 0.809915    
+Inter.V16V17   -29.66553   22.54969  -1.316 0.188425    
+Inter.V16V26    -7.84453   15.60910  -0.503 0.615311    
+Inter.V17V21    31.70590   24.86649   1.275 0.202395    
+Inter.V17V30    44.60477   22.32368   1.998 0.045800 *  
+Inter.V18V22   -12.33053   40.55461  -0.304 0.761113    
+Inter.V18V28   -12.38897   31.37652  -0.395 0.692984    
+Inter.V20V21  -301.59813  204.23680  -1.477 0.139862    
+Inter.V20V30    11.98263   24.31755   0.493 0.622222    
+Inter.V21V24    39.91097   34.49498   1.157 0.247364    
+Inter.V22V23   -11.07078   25.09679  -0.441 0.659157    
+Inter.V22V26     1.22723   22.71224   0.054 0.956912    
+Inter.V22V28   -17.07931   23.23860  -0.735 0.462427    
+Inter.V22V31   -22.46175   20.34275  -1.104 0.269613    
+Inter.V24V25    -3.89718   14.27968  -0.273 0.784936    
+Inter.V1V2      -6.24421   14.88342  -0.420 0.674851    
+Inter.V2V25      2.14755   16.11247   0.133 0.893977    
+Inter.V3V4      -1.17815   19.46305  -0.061 0.951736    
+Inter.V3V10    -17.93547   16.03008  -1.119 0.263291    
+Inter.V3V17    -19.77295   19.63570  -1.007 0.314024    
+Inter.V4V5     -54.06674   97.17493  -0.556 0.577990    
+Inter.V4V11    -10.98506   30.93465  -0.355 0.722536    
+Inter.V4V20      0.78464   22.70072   0.035 0.972430    
+Inter.V4V29     -8.89651   16.31786  -0.545 0.585657    
+Inter.V4V31     15.19315   13.23985   1.148 0.251256    
+Inter.V5V26     -2.93411   15.13696  -0.194 0.846317    
+Inter.V6V28      1.45287   21.56807   0.067 0.946298    
+Inter.V9V22     -6.11602   40.19272  -0.152 0.879066    
+Inter.V11V17    65.59429   35.51909   1.847 0.064888 .  
+Inter.V15V23     1.94033   19.36003   0.100 0.920174    
+Inter.V19V28    -0.02794   18.48550  -0.002 0.998794    
+Inter.V19V29    22.77065   17.52307   1.299 0.193887    
+Inter.V20V27    -5.74021   43.99378  -0.130 0.896198    
+Inter.V21V30     2.61494   33.63697   0.078 0.938040    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 189.2 on 2920 degrees of freedom
-Multiple R-squared:  0.1741,	Adjusted R-squared:  0.1518 
-F-statistic: 7.794 on 79 and 2920 DF,  p-value: &lt; 2.2e-16
+Residual standard error: 189.5 on 2901 degrees of freedom
+Multiple R-squared:  0.1767,	Adjusted R-squared:  0.1489 
+F-statistic: 6.354 on 98 and 2901 DF,  p-value: &lt; 2.2e-16
 </pre>
 </div>
 

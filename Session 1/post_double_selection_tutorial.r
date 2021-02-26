@@ -121,7 +121,7 @@ df_merge <- as.data.frame(cbind(df[,-c(1,2,3,6,11)], interactions))
 ## Eliminate collinear variables
 df2 = cor(df_merge)
 df2[is.na(df2)] <- 1
-hc = findCorrelation(df2, cutoff=0.8) # putt any value as a "cutoff" 
+hc = findCorrelation(df2, cutoff=0.8) # put any value as a "cutoff" 
 hc = sort(hc)
 df_int = cbind(df[,c(1,3)],df_merge[,-c(hc)])
 print(paste0("Total number of control variables: ", ncol(df_int)-2))
@@ -241,16 +241,25 @@ summary(dsp)
 ###############################################################################
 
 # Predict earnings
+st1 <- rlasso(???)
 
 # Store selected variables
+n1<- names(st1$coefficients[(st1$coefficients != 0) == TRUE])[-1]
+print(paste0("Number of Selected Variables Earnings Equation: ",length(n1)))
+print(n1)
 
 ###############################################################################
 # Participation Probability
 ###############################################################################
 
 # Predict participation
+st2 <- rlasso(???)
 
 # Store selected variables
+n2<- names(st2$coefficients[(st2$coefficients != 0) == TRUE])[-1]
+print(paste0("Number of Selected Variables Participation Equation: ",length(n2)))
+print(n2)
+
 
 ###############################################################################
 # Post-Lasso Model
@@ -290,7 +299,7 @@ plot(lasso_earn)
 ####################################################################
 
 # Plot Lasso coefficients
-coef(lasso_earn,s = lasso_earn$lambda.1se) 
+coef(lasso_earn,s = lasso_earn$lambda.min) 
 # $lambda.min - Lambda that minimizes cross-validated MSE
 # $lambda.1se - Lambda of 1 standard error rule
 
@@ -324,6 +333,7 @@ plot(lasso_part)
 # Select covariates with non-zero coefficients
 coef <- predict(???,s = ???, type = "nonzero") #
 colnames <- colnames(df_int[,c(3:ncol(df_int))])
+n2 <- colnames[unlist(coef)]
 print(paste0("Number of Selected Variables Participation Equation: ",length(n2)))
 print("Selected Variables:")
 print(n2)
